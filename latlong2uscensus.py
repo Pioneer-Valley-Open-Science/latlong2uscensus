@@ -25,7 +25,7 @@
 # Usage:
 # python latlong2uscensus.py [inputFilename] [trialNumber]
 # Example:
-# python latlong2uscensus.py rseqid_lat_long_sample.txt 3
+# python latlong2uscensus.py sampleInput.txt 3
 
 import json, requests, pprint, sys
 
@@ -71,7 +71,7 @@ for line in open(inputFilename, 'r'):
                 blocks = output_json['Results']['intersect']['block']
                 for b in blocks:
                     FIPS = b['FIPS']
-                    output=label+","+lat+","+lon+","+FIPS+","+FIPS[0:2]+","+FIPS[2:5]+","+FIPS[5:11]+","+FIPS[11:12]+","+FIPS[11:15]
+                    output=label+"\t"+lat+"\t"+lon+"\t"+"\t"+FIPS[0:2]+"\t"+FIPS[0:5]+"\t"+FIPS[0:11]+"\t"+FIPS[0:12]+"\t"+FIPS
                     # write to screen
                     print output
                     # write to file
@@ -81,7 +81,7 @@ for line in open(inputFilename, 'r'):
                 blocks = output_json['Results']['block']
                 for b in blocks:
                     FIPS = b['FIPS']
-                    output=label+","+lat+","+lon+","+FIPS+","+FIPS[0:2]+","+FIPS[2:5]+","+FIPS[5:11]+","+FIPS[11:12]+","+FIPS[11:15]
+                    output=label+"\t"+lat+"\t"+lon+"\t"+"\t"+FIPS[0:2]+"\t"+FIPS[0:5]+"\t"+FIPS[0:11]+"\t"+FIPS[0:12]+"\t"+FIPS
                     # write to screen
                     print output
                     # write to file
